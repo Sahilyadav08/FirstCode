@@ -34,22 +34,17 @@ for n in range(1,2):           # this loop is for pages range
     for c in author:
        author_list.append(c.text)
 
-# file=open('Data.csv','w')           # Creating CSV file and giving some field names
-# writer=csv.writer(file)
-# writer.writerow(['Titles', 'Author_name ', 'Price'])       
-       
-print(len(book_list))
-print(len(author_list))
-print(len(price_list))
+file=open('Data.csv','w')           # Creating CSV file and giving some field names
+writer=csv.writer(file)
+writer.writerow(['Titles', 'Author_name ', 'Price'])       
+ 
+for x in range(len(book_list)):            #Index for loop
+    book_list[x] +' : ' + author_list[x] + " : " + price_list[x]  #By using the index we get the element from all the list
 
+    p=author_list[x]
+    p=(p[p.rindex(",")+2:-1])               # Flitering only author name from the string
 
-# for x in range(len(price_list)):            #Index for loop
-#     book_list[x] +' : ' + author_list[x] + " : " + price_list[x]  #By using the index we get the element from all the list
+    writer.writerow([book_list[x],p,price_list[x]]) 
 
-#     p=author_list[x]
-#     p=(p[p.rindex(",")+2:-1])               # Flitering only author name from the string
-
-#     writer.writerow([book_list[x],p,price_list[x]]) 
-
-# file.close()
+file.close()
 
